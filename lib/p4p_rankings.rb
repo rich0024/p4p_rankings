@@ -1,5 +1,6 @@
 require "pry"
 require "nokogiri"
+require "open-uri"
 require_relative "./p4p_rankings/version"
 require_relative "./p4p_rankings/cli"
 require_relative "./p4p_rankings/fighters"
