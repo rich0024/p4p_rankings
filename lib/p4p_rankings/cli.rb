@@ -11,16 +11,16 @@ class P4pRankings::CLI
     puts "To quit, type 'exit'."
     input = gets.strip
     case input
-    when input = "rankings"
+    when "rankings"
       rankings
-    when input = "record"
+    when "record"
       record
     end
   end
   end
 
   def rankings
-    P4pRankings::Fighters.rankings
+    puts P4pRankings::Fighters.rankings
   end
 
   def record

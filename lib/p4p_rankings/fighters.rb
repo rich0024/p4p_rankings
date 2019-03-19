@@ -1,16 +1,19 @@
 class P4pRankings::Fighters
-  attr_accessor :name, :record, :win, :loss, :draw
+  attr_accessor :name, :win, :loss, :draw
 
-  def initialize(name:, record:)
-    name = @name
-    record = @record
-    win = @win
-    loss = @loss
-    draw = @draw
+  def initialize(name:, win:, loss:, draw:)
+    @name = name
+    @win = win
+    @loss = loss
+    @draw = draw
+  end
+
+  def record
+    "#{@win} - #{@loss} - #{@draw}"
   end
 
   def self.all
-     @@all ||= self.scrape_fighters.collect do |fighter_hash|
+     @@all ||= self.scrape_fighters.collect.with_index do |fighter_hash, i|
       self.new(fighter_hash)
     end
   end
@@ -20,15 +23,16 @@ class P4pRankings::Fighters
     doc.css('tr').collect do |fighter|
       {
       name: fighter.css("a.personLink").text,
-      record: "#{win = fighter.css('span.textWon').text} - #{loss = fighter.css('span.textLost').text} - #{draw = fighter.css('span.textDraw').text}"
+      win: fighter.css('span.textWon').text,
+      loss: fighter.css('span.textLost').text,
+      draw: fighter.css('span.textDraw').text
       }
-    end
+    end - [{:name=>"", :win=>"", :loss=>"", :draw=>""}]
   end
 
   def self.rankings
-    fighters = scrape_fighters - [{:name=>"", :record=>" -  - "}]
-    fighters.each_with_index do |(name, record), i|
-      puts "#{i + 1}. #{name}"
+    all.collect.with_index do |fighter, i|
+      "#{i + 1}. #{fighter.name}"
     end
   end
 
