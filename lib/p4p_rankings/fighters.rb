@@ -32,4 +32,5 @@ class P4pRankings::Fighters
     end
   end
 
+
 end
