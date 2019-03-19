@@ -1,8 +1,7 @@
 class P4pRankings::Fighters
   attr_accessor :name, :record, :win, :loss, :draw
-  @@all = []
 
-  def initialize
+  def initialize(name:, record:)
     name = @name
     record = @record
     win = @win
@@ -11,7 +10,9 @@ class P4pRankings::Fighters
   end
 
   def self.all
-    binding.pry
+     @@all ||= self.scrape_fighters.collect do |fighter_hash|
+      self.new(fighter_hash)
+    end
   end
 
   def self.scrape_fighters
@@ -24,5 +25,11 @@ class P4pRankings::Fighters
     end
   end
 
+  def self.rankings
+    fighters = scrape_fighters - [{:name=>"", :record=>" -  - "}]
+    fighters.each_with_index do |(name, record), i|
+      puts "#{i + 1}. #{name}"
+    end
+  end
 
 end
