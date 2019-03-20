@@ -26,7 +26,7 @@ class P4pRankings::CLI
   def record
     puts "Please enter the fighter's rank to view the fighter's record"
     input = gets.strip.to_i
-    #includes?
+    puts "#{P4pRankings::Fighters.all[input - 1].name}'s record is #{P4pRankings::Fighters.all[input - 1].record}"
   end
 
 end

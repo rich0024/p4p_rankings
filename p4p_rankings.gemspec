@@ -36,8 +36,8 @@ Gem::Specification.new do |spec|
   spec.executables   = ["p4p_rankings"]
   spec.require_paths = ["lib"]
 
+  spec.add_development_dependency 'bundler', '~> 1.11', '>= 1.11.2'
   spec.add_development_dependency "rake", '~> 11.2', '>= 11.2.2'
   spec.add_development_dependency "pry"
-  spec.add_development_dependency "gem-release"
   spec.add_development_dependency "nokogiri"
 end
