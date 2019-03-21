@@ -1,8 +1,6 @@
 # P4pRankings
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/p4p_rankings`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to P4pRankings, a gem which allows one to view the CURRENT, top 50, pound for pound fighters of the WORLD. In addition to being able to view a list of the top fighters, P4pRankings adds an extra layer by allowing one to view every fighter's wins, losses and draws. This gem helps fight fans answer the question, "who is the current best" by being able to view where a fighter stands amongst other current greats.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+A gem for easy viewing of the top 50 pound for pound list and each fighter's record.
 
 ## Development
 
